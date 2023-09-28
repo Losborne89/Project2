@@ -19,10 +19,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // moves player right and left horizontally
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
-        // Keep player in bounds
+        // Keep player in bounds left and right
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Launch a projectile from player
+            //Launch a projectile from player when space key is pressed
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
     }

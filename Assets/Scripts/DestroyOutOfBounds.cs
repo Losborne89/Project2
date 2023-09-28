@@ -16,6 +16,7 @@ public class DestroyOutOfBounds: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // destroys food and animal when out of bounds
         if (transform.position.z > topBound)
         {
             Destroy(gameObject);
