@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class DetectsCollisions : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class DetectsCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Increases score when animals hit 
+        PlayerController.score++;
+        Debug.Log("Score : " + PlayerController.score);
+
         // Destroys animals and food on collision
         Destroy(gameObject);
         Destroy(other.gameObject);

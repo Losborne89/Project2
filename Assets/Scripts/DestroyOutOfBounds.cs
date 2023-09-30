@@ -7,6 +7,7 @@ public class DestroyOutOfBounds: MonoBehaviour
     private float topBound = 40f;
     private float lowerBound = -10f;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +17,25 @@ public class DestroyOutOfBounds: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // destroys food and animal when out of bounds
+        // destroys spear when out of bounds
         if (transform.position.z > topBound)
         {
             Destroy(gameObject);
         }
-        else if (transform.position.z < lowerBound)
+
+        // destroys animals when out of bounds 
+        if (transform.position.z < lowerBound)
         {
-            Debug.Log("Game Over!");
+            // Reduce lives
+            PlayerController.lives--;
+            Debug.Log("Lives : " + PlayerController.lives);
+
+            if (PlayerController.lives < 0)
+            {
+                // Prints 'Game Over!'
+                Debug.Log("Game Over!");
+            }
+
             Destroy(gameObject);
         }
     }

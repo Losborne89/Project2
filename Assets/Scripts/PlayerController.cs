@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private float xRange = 20f;
 
     public GameObject projectilePrefab;
+    public static int lives = 3;
+    public static int score = 0;
 
     // Start is called before the first frame update
     void Start()
