@@ -6,6 +6,7 @@ public class DestroyOutOfBounds: MonoBehaviour
 {
     private float topBound = 40f;
     private float lowerBound = -10f;
+    private float rightBound = 30f;
 
 
     // Start is called before the first frame update
@@ -23,16 +24,22 @@ public class DestroyOutOfBounds: MonoBehaviour
             Destroy(gameObject);
         }
 
-        // destroys animals when out of bounds 
+        if (transform.position.x > rightBound)
+        {
+            Destroy(gameObject);
+        }
+
+        // destroys animals when out of lowerbound and rightbound
         if (transform.position.z < lowerBound)
         {
-            // Reduce lives
+            // Reduces lives when animal gets past the player
             PlayerController.lives--;
             Debug.Log("Lives : " + PlayerController.lives);
 
+            
             if (PlayerController.lives < 0)
             {
-                // Prints 'Game Over!'
+                // Prints 'Game Over!' when lives are less than 0
                 Debug.Log("Game Over!");
             }
 

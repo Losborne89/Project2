@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         // moves player right and left horizontally
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+        transform.Translate(Vector3.left * horizontalInput * Time.deltaTime * speed);
 
         // Keep player in bounds left and right
         if (transform.position.x < -xRange)
