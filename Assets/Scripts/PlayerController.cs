@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
         // Player movement left to right
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        transform.Translate(Vector3.left * Time.deltaTime * speed * horizontalInput);
 
 
         if (Input.GetKeyDown(KeyCode.Space))
